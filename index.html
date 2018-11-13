@@ -6,7 +6,6 @@
   <title>Safe Pace Stock Search</title>
   <!-- Bootstrap CSS CDN  -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
-
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -26,37 +25,20 @@
           <br>
           <!-- For handling the search parameters -->
           <div class="card">
-            <div class="card-header">
-              <strong> Search Parameters</strong>
-            </div>
             <div class="card-body">
   
               <!-- HTML Form for handling the inputs-->
               <form role="form">
-                <!-- Text box for capturing the search term-->
+                <!--  box for capturing the search term-->
                 <div class="form-group">
-                  <label for="search">Search Term:</label>
+                  <label for="search">Search Stock:</label>
                   <div class='magicBtns'></div>
-                  <input type="text" class="form-control" id="search-term">
+                  <input type="text" class="form-control" id="stockSymbol">
                 </div>
-  
-                <!-- Here we capture the number of records that the user wants to retrieve  -->
-                <!-- <div class="form-group">
-                  <label for="pwd">Number of Records to Retrieve:</label>
-                  <select id="article-count" class="custom-select" aria-labelledby="dropdownMenuButton">
-                    <option selected value="1">1</option> -->
-                    <!-- Setting the option for 5 as default -->
-                    <!-- <option value="5" selected>5</option>
-                    <option value="10">10</option>
-                  </select>
-                </div> -->
-
-                <!-- Here we have our final submit button -->
-                <button type="submit" class="btn btn-default" id="run-search">
-                  <i class="fa fa-search"></i> Search</button>
+                <!-- Add stock  button -->
+                <button type="submit" class="btn btn-default stock-btn" id="addSymbol">Add Stock Symbol</button>
                 <button class="btn btn-default" id="clear-all">
                   <i class="fa fa-trash"></i>Clear</button>
-  
               </form>
             </div>
           </div>
@@ -67,7 +49,7 @@
       <div class="row">
         <div class="col-sm-12">
           <br>
-  
+
           <!-- This card will initially be made up of a card and wells for each of the articles retrieved -->
           <div class="card">
   
@@ -78,7 +60,7 @@
             </div>
   
             <!-- This main card will hold each of the resulting articles -->
-            <div class="card-body" id="article-section">
+            <div class="card-body" id="display-section">
             </div>
           </div>
         </div>
@@ -100,8 +82,8 @@
     </div>
     
     <!-- jQuery JS -->
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- Code to the JavaScript File -->
     <script src="app.js"></script>
   
