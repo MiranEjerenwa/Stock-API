@@ -3,6 +3,7 @@
 
 var stocksList = ['FB','AMZN', 'MSFT','BLDR', 'SNAP','CNAT'];
 const validationList = [];
+console.log(validationList);
 
 const getValList = function () {
   ///stock/market/batch?symbols=aapl,fb,tsla&types=quote,news,chart&range=1m&last=5
@@ -19,12 +20,10 @@ const valSymbols = symbolsList.symbol;
 
 // Appending the valSymbols to our valSymbolsDiv
 valSymbolsDiv.append(valSymbols);
+validationList.push(valSymbols);
 
     }
-    // console.log(result.symbol);
-    // console.log(response);
-      // Creating a div to hold the symbols
-  // const stockDiv = $('<div>').addClass('stock');
+  
   })
 
 }
@@ -87,40 +86,35 @@ const nameHolder = $('<p>').text(`Company Name: ${companyName}`);
 // Appending the name to our stockDiv
   stockDiv.append(nameHolder);
 
- // Storing the logo
- const companyLogo = response.logo.url;
+// Storing the logo
+const companyLogo = response.logo.url;
 console.log(companyLogo);
 
- // Creating an element to display the logo
-//  logoElement = $('<img>').addClass('logoSrc');
-
+// Creating an element to display the logo
 const logoHolder = $('<img>').attr('src', `${companyLogo}`);
-console.log(logoHolder);
-//  const logoHolder = $('<img src= >').attr(`Company Logo: ${companyLogo}>`);
-// <img id=’some_image’ src=”” /> (if this is your image tag)
-// $(“#some_image”).attr(‘src’,”your location url”);
- // Appending the logo to our stockDiv
- stockDiv.append(logoHolder);
 
- // Storing the stock symbol
- const stockSymbol = response.quote.symbol;
+// Appending the logo to our stockDiv
+stockDiv.append(logoHolder);
 
- // Creating an element to display the stock symbol
- const symbolHolder = $('<p>').text(`Stock Symbol: ${stockSymbol}`);
+// Storing the stock symbol
+const stockSymbol = response.quote.symbol;
 
-   // Appending the symbol to our stockDiv
-   stockDiv.append(symbolHolder);
+// Creating an element to display the stock symbol
+const symbolHolder = $('<p>').text(`Stock Symbol: ${stockSymbol}`);
 
-   // Storing the price
-   const stockPrice = response.quote.latestPrice;
+// Appending the symbol to our stockDiv
+stockDiv.append(symbolHolder);
 
-   // Creating an element to display the price
-   const priceHolder = $('<p>').text(`Stock Price: $${stockPrice}`);
+// Storing the price
+const stockPrice = response.quote.latestPrice;
 
-   // Appending the price to our stockDiv
-   stockDiv.append(priceHolder);
+// Creating an element to display the price
+const priceHolder = $('<p>').text(`Stock Price: $${stockPrice}`);
 
-   // Storing the first news summary
+// Appending the price to our stockDiv
+stockDiv.append(priceHolder);
+
+   // Storing the first 10 news summary
    const companyNews = response.news[0].summary;
 
    // Creating an element to display the news summary
