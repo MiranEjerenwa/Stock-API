@@ -115,13 +115,14 @@ const priceHolder = $('<p>').text(`Stock Price: $${stockPrice}`);
 stockDiv.append(priceHolder);
 
    // Storing the first 10 news summary
-   const companyNews = response.news[0].summary;
-
-   // Creating an element to display the news summary
-   const summaryHolder = $('<p>').text(`News Headline: ${companyNews}`);
-
+   const companyNews = response.news;
+   for (let i = 0; i<companyNews.length; i++) {
+      // Creating an element to display the news summary
+    const summaryHolder = $('<p>').text(`News Headline: ${companyNews[i].summary}`);
+    
    // Appending the summary to our stockDiv
    stockDiv.append(summaryHolder);
+   }
 
    //Finally adding the stockDiv to the DOM
     // Until this point nothing is actually displayed on our page
@@ -131,25 +132,32 @@ stockDiv.append(priceHolder);
 
 }
 // when a button is clicked
-
 const addButton = function(event) {
-
   // event.preventDefault() prevents the form from trying to submit itself.
   // We're using a form so that the user can hit enter instead of clicking the button if they want
   event.preventDefault();
 
-  // This line will grab the text from the input box
-  const stock = $('#stockSymbol').val().trim();
-
+  // This line will grab the text from the input box & // Convert entry to upper case
+  const stock = $('#stockSymbol').val().trim().toUpperCase();
 // The stock from the input is then added to our array
 stocksList.push(stock);
 
- // Deletes the contents of the input
- $('#stockSymbol').val('');
+// then use an if statement or validation to ensure the stock === 'validationList' before adding to 'stockList'
+// for (let i = 0; i< validationList.length; i++) {
+//   if (stock === 'validationList[i]') {
+//     // The stock from the input is then added to our array
+// stocksList.push(stock);
+//   } else (stock !== validationList[i]); {
+//     console.log('what ?');
+//   }
+// }
 
-  // calling createButton which handles the processing of our stockList array
+// Deletes the contents of the input
+$('#stockSymbol').val('');
 
-  createButton();
+// calling createButton which handles the processing of our stockList array
+
+createButton();
 }
 
 // Event listener for #add-stock button
@@ -181,10 +189,3 @@ $(document).on('click', '.stock-btn', getStockInfo);
 
 
 
-
-
-
-
-
-
-// /ref-data/symbols
